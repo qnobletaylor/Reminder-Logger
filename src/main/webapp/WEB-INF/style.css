@@ -1,4 +1,8 @@
-input::placeholder {
-    color: red;
-    opacity: 1; /* Firefox */
+.form-control::-moz-placeholder {
+    color: #EAE2B7;
+}
+
+.form-control {
+    border-color: #053225;
+    border-width: 3px;
 }
