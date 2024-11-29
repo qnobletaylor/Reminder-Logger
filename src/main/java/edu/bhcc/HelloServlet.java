@@ -26,7 +26,7 @@ public class HelloServlet extends HttpServlet {
     response.setStatus(HttpServletResponse.SC_OK);
 
     // Create the Model
-    Map<String, Object> root = new HashMap<String, Object>();
+    Map<String, Object> root = new HashMap<>();
     root.put("user", "Quinlin");
 
     // Get the FreeMarker Template Engine
@@ -36,6 +36,7 @@ public class HelloServlet extends HttpServlet {
 
     //  Merge the Model with the Template
     PrintWriter writer = response.getWriter();
+
     try {
       template.process(root, writer);
     } catch (TemplateException e) {
