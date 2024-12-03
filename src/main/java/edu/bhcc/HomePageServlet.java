@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * Hello, World Servlet.
  */
-public class HelloServlet extends HttpServlet {
+public class HomePageServlet extends HttpServlet {
   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
   private Connection database;
 
@@ -33,10 +33,10 @@ public class HelloServlet extends HttpServlet {
 
     try {
       database = DriverManager.getConnection("jdbc:sqlite:src/main/webapp/WEB-INF/log.db");
-      
+
       // Create the Model
       Map<String, Object> root = new HashMap<>();
-      root.put("msgList", getMessages(database, request));
+      root.put("msgList", getMessages(database));
 
       // Get the FreeMarker Template Engine
       FreeMarkerUtil setup = FreeMarkerUtil.getInstance();
@@ -68,21 +68,18 @@ public class HelloServlet extends HttpServlet {
     ps.setString(2, request.getParameter("msg"));
   }
 
-  private ArrayList<LogMsg> getMessages(Connection connection, HttpServletRequest request) throws SQLException {
+  private ArrayList<MessageRecord> getMessages(Connection connection) throws SQLException {
     ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM log");
-    ArrayList<LogMsg> messages = new ArrayList<>();
+    ArrayList<MessageRecord> messages = new ArrayList<>();
 
     if (resultSet.next()) {
       do {
         String time = resultSet.getString("TIME");
         String msg = resultSet.getString("MESSAGE");
 
-        messages.add(new LogMsg(time, msg));
+        messages.add(new MessageRecord(time, msg));
       } while (resultSet.next());
     }
     return messages;
-  }
-
-  private record LogMsg(String time, String message) {
   }
 }

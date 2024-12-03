@@ -19,11 +19,13 @@
         <label class="border-bottom border-light-subtle border-3 h2 align-self-center" for="msg"
                style="color:#FCBF49">Reminders</label>
         <div class="d-flex flex-row">
+            <form>
             <input class="form-control bg-dark" id="msg"
                    placeholder="hello"
                    type="text">
-            <button class="btn btn-dark btn-outline-light m-2" formaction="Hello" formmethod="get" type="submit">Submit
+            <button class="btn btn-dark btn-outline-light m-2" type="submit">Submit
             </button>
+            </form>
         </div>
         <table class="table table-dark table-striped table-hover">
             <thead>
@@ -35,8 +37,8 @@
             <tbody>
             <#list msgList as msg>
             <tr>
-                <th scope="row">${msg.time}</th>
-                <td>${msg.message}</td>
+                <th scope="row">${msg.getTime()}</th>
+                <td>${msg.getMessage()}</td>
             </tr>
             </#list>
             </tbody>
