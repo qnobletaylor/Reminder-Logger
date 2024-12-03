@@ -9,9 +9,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ import java.util.Map;
  * Hello, World Servlet.
  */
 public class HomePageServlet extends HttpServlet {
-  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+
   private Connection database;
 
   /**
@@ -57,15 +58,6 @@ public class HomePageServlet extends HttpServlet {
     }
 
 
-  }
-
-  private void newMessage(Connection connection, HttpServletRequest request) throws SQLException {
-    PreparedStatement ps = connection.prepareStatement("INSERT INTO log VALUES(?, ?)");
-    LocalTime now = LocalTime.now();
-    String time = now.format(formatter);
-
-    ps.setString(1, time);
-    ps.setString(2, request.getParameter("msg"));
   }
 
   private ArrayList<MessageRecord> getMessages(Connection connection) throws SQLException {

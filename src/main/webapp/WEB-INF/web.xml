@@ -7,12 +7,22 @@
         version="3.1">
 
     <servlet>
-        <servlet-name>Hello</servlet-name>
+        <servlet-name>Home</servlet-name>
         <servlet-class>edu.bhcc.HomePageServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewLog</servlet-name>
+        <servlet-class>edu.bhcc.LoggingServlet</servlet-class>
+    </servlet>
+
+
     <servlet-mapping>
-        <servlet-name>Hello</servlet-name>
-        <url-pattern>/hello/*</url-pattern>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewLog</servlet-name>
+        <url-pattern>/NewLog</url-pattern>
     </servlet-mapping>
 
 </web-app>
