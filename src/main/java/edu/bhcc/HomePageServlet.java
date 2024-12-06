@@ -42,7 +42,7 @@ public class HomePageServlet extends HttpServlet {
       // Get the FreeMarker Template Engine
       FreeMarkerUtil setup = FreeMarkerUtil.getInstance();
       Configuration cfg = setup.getFreeMarkerConfiguration();
-      Template template = cfg.getTemplate("hello.html");
+      Template template = cfg.getTemplate("index.html");
 
       //  Merge the Model with the Template
       PrintWriter writer = response.getWriter();
@@ -66,10 +66,11 @@ public class HomePageServlet extends HttpServlet {
 
     if (resultSet.next()) {
       do {
+        int id = resultSet.getInt("ID");
         String time = resultSet.getString("TIME");
         String msg = resultSet.getString("MESSAGE");
 
-        messages.add(new MessageRecord(time, msg));
+        messages.add(new MessageRecord(id, time, msg));
       } while (resultSet.next());
     }
     return messages;
