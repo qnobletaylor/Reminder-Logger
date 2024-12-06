@@ -14,6 +14,10 @@
         <servlet-name>NewLog</servlet-name>
         <servlet-class>edu.bhcc.LoggingServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ClearDB</servlet-name>
+        <servlet-class>edu.bhcc.ClearDBServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>NewLog</servlet-name>
         <url-pattern>/NewLog</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClearDB</servlet-name>
+        <url-pattern>/Clear</url-pattern>
     </servlet-mapping>
 
 </web-app>

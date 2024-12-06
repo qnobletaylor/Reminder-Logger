@@ -66,11 +66,10 @@ public class HomePageServlet extends HttpServlet {
 
     if (resultSet.next()) {
       do {
-        int id = resultSet.getInt("ID");
         String time = resultSet.getString("TIME");
         String msg = resultSet.getString("MESSAGE");
 
-        messages.add(new MessageRecord(id, time, msg));
+        messages.add(new MessageRecord(time, msg));
       } while (resultSet.next());
     }
     return messages;

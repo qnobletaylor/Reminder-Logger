@@ -11,13 +11,16 @@
                 <label for="msg" class="form-label">
                 <input class="form-control text-bg-dark bg-dark" id="msg" name="msg"
                    placeholder="Log Message"
-                   type="text"></label>
+                   type="text" required></label>
             <button class="btn btn-dark btn-outline-light" style="margin-bottom: 10px; margin-left: 10px"
                     type="submit">Submit
             </button>
             </form>
-            <button class="btn btn-dark btn-outline-light" style="margin-bottom: 10px; margin-left: 10px"
-            type="submit" formmethod="post" formaction="Clear">Clear</button>
+            <form>
+                <button class="btn btn-dark btn-outline-light" style="margin-bottom: 10px; margin-left: 10px"
+                          type="submit" formmethod="post" formaction="Clear">Clear</button>
+            </form>
+
         </div>
         <div class="overflow-auto" style="max-height: 550px; width: 500px">
         <table class="table table-dark table-striped table-hover">
