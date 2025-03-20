@@ -1,5 +1,7 @@
 # Message Logging | Adv Java HW7
 
+![Demo](https://i.imgur.com/Af7bUdo.png)
+
 This web app allows a user to input text and submit it as a log message to the server. When a log message is
 submitted it will be added as a record to a SQLite database on the backend. Also when a log message is submitted the
 server will capture the local time and save that timestamp alongside the message.
